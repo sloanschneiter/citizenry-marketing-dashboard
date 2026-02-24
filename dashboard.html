@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Citizenry - Marketing Performance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0"></script>
+    <style>
+        :root {
+            --bg-primary: #FAFAF8;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-muted: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #264653;
+            --accent-warm: #E76F51;
+            --green: #2D6A4F;
+            --teal: #2A9D8F;
+            --gold: #E9C46A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+        header h1 { font-size: 1.75rem; font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }
+        header .subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        header .meta { font-size: 0.8rem; color: var(--text-muted); }
+        .section { margin-bottom: 2.5rem; }
+        .section h2 {
+            font-size: 1.15rem; font-weight: 600; color: var(--accent);
+            margin-bottom: 0.75rem; padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--teal); display: inline-block;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .card canvas { max-height: 380px; }
+        .takeaway {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: #F0F7F4;
+            border-left: 3px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #1A1A1A;
+            line-height: 1.6;
+        }
+        .takeaway strong { color: var(--green); }
+        .chart-note {
+            font-size: 0.78rem; color: var(--text-muted);
+            margin-top: 12px; font-style: italic;
+        }
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 12px;
+        }
+        .data-table th {
+            text-align: right; padding: 8px 10px;
+            font-weight: 600; color: var(--text-secondary);
+            border-bottom: 2px solid var(--border);
+            font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .data-table th:first-child { text-align: left; }
+        .data-table td {
+            text-align: right; padding: 6px 10px;
+            border-bottom: 1px solid #f3f4f6; color: var(--text-primary);
+            white-space: nowrap;
+        }
+        .data-table td:first-child { text-align: left; font-weight: 500; }
+        .data-table tr:hover { background: #f9fafb; }
+        .data-table .pct { color: var(--text-muted); font-size: 0.72rem; }
+        .table-scroll { overflow-x: auto; }
+        .tab-bar {
+            display: flex; gap: 0; margin-bottom: 0; border-bottom: 2px solid var(--border);
+        }
+        .tab-btn {
+            padding: 8px 20px; font-size: 0.82rem; font-family: inherit;
+            background: none; border: none; cursor: pointer;
+            color: var(--text-muted); font-weight: 500;
+            border-bottom: 2px solid transparent; margin-bottom: -2px;
+            transition: all 0.15s;
+        }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--teal); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .roas-tab-panel { display: none; }
+        .roas-tab-panel.active { display: block; }
+        .roas-good { color: #2D6A4F; font-weight: 600; }
+        .roas-ok { color: #92400E; }
+        .roas-bad { color: #991B1B; }
+        #error {
+            display: none; background: #FEF2F2; border: 1px solid #FECACA;
+            color: #991B1B; padding: 16px 20px; border-radius: 8px;
+            margin-bottom: 2rem; font-size: 0.9rem;
+        }
+        footer {
+            margin-top: 3rem; padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem; color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div id="error"></div>
+
+    <header>
+        <h1>The Citizenry</h1>
+        <div class="subtitle">Marketing Efficiency & ROAS Dashboard</div>
+        <div class="meta" id="header-meta">Jan 2025 - Feb 2026 MTD</div>
+    </header>
+
+    <div class="section" style="margin-top: 0;">
+        <h2>Things to Consider Testing or Changing</h2>
+        <div class="card" style="background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%); color: #fff;">
+            <ol style="padding-left: 1.25rem; margin: 0; font-size: 0.85rem; line-height: 1.75;">
+                <li style="margin-bottom: 10px;"><strong>Pause the Furniture and Rugs PMax campaigns.</strong> These category campaigns cannibalized General's high-AOV conversions without generating incremental demand. Total PMax at similar spend: 4.03x ROAS with 2 campaigns (Jan-Apr 2025) vs 2.08x with 4 campaigns (Jan 2026). Pausing should let General recapture rug/furniture conversions and restore its ~$500/conv average. Monitor rev/conv recovery over 3-4 weeks.</li>
+                <li style="margin-bottom: 10px;"><strong>Rebuild a promotional campaign engine for Meta.</strong> The account scaled to $270K+/month at 3.5-5.9x ROAS in 2024 with two complementary campaign sets: dedicated promotional ASCs tied to sale events ($137K in BFCM spend alone) alongside evergreen campaigns at ~$110K. The promotional campaigns were removed by Jan 2025 and evergreen tried to absorb the full budget, but evergreen doesn't convert as well at volume. Restoring dedicated promotional capability — and right-sizing downstream budgets to their audience pools — is likely the key to scaling again.</li>
+                <li style="margin-bottom: 10px;"><strong>Scale Meta more thoughtfully.</strong> The account reached $270K+/month at 3.5-5.9x ROAS in 2024 — the platform can support it, but not by simply increasing evergreen budgets. Specific things to test:
+                    <ul style="margin-top: 6px; padding-left: 1.25rem; list-style-type: disc;">
+                        <li style="margin-bottom: 4px;"><strong>Product launch campaign sets:</strong> Run dedicated full-funnel campaigns (ASC prospecting + remarketing + retention) around product drops and collection launches. Launches create urgency through novelty and scarcity without discounting. Test $40-60K over 2-3 weeks per launch.</li>
+                        <li style="margin-bottom: 4px;"><strong>Seasonal moment campaigns:</strong> "Spring bedroom refresh", "Summer entertaining", "Fall nesting" — themed campaign sets with fresh creative, time-bounded investment, and dedicated remarketing. The promotional campaigns worked partly because they had a defined start/end and distinct creative, not just because of discounts.</li>
+                        <li style="margin-bottom: 4px;"><strong>Catalog + Manual Ads hybrid ASC:</strong> The top-performing 2024 campaign used this format — mixing algorithmic catalog optimization with hand-curated creative. Test as a second ASC alongside Evergreen Catalog to reach different audience segments.</li>
+                        <li style="margin-bottom: 4px;"><strong>Scale remarketing only during traffic spikes:</strong> Downstream audiences are finite. Rather than scaling retargeting/retention proportionally with prospecting, only increase downstream budgets when there's a measurable traffic spike (product launch, PR feature) that actually grows the retargeting pool.</li>
+                        <li style="margin-bottom: 4px;"><strong>Incrementality holdout test first:</strong> Before spending $250K+ again, run a geo holdout at the current $140K level to measure what share of conversions are truly incremental. This reveals the real ceiling before you hit it.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 10px;"><strong>Fix Meta UTM tagging (GA4 only).</strong> Meta uses <code style="background: rgba(255,255,255,0.15); padding: 2px 5px; border-radius: 3px;">paid_ig/social</code> and <code style="background: rgba(255,255,255,0.15); padding: 2px 5px; border-radius: 3px;">paid_fb/social</code>, causing GA4 to misclassify ~180K paid sessions/month as "Organic Social." This distorts GA4 channel reports but does not impact Rockerbox MTA attribution or Meta's platform-reported conversions. Lower priority — fix for GA4 reporting accuracy.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section" style="margin-top: 2.5rem;">
+        <h2>Efficiency & ROAS Trend</h2>
+        <div class="card">
+            <canvas id="efficiencyRoasChart"></canvas>
+            <div class="chart-note">
+                ROAS source: P&L actuals (Jan-Jun 2025), Rockerbox UI (Jul 2025+). Rockerbox undercounts spend by $50-130K+/mo vs P&L.
+            </div>
+            <div class="takeaway" id="eff-takeaway"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Channel Spend Distribution</h2>
+        <div class="card">
+            <div class="table-scroll" id="spend-table-container"></div>
+            <div class="chart-note">
+                Jan-Jun 2025: P&L actuals (incl. Trade spend in platform totals). Jul 2025+: Rockerbox platform-reported spend. Does not include agency fees or nonworking costs.
+            </div>
+            <div class="takeaway" id="spend-takeaway"></div>
+        </div>
+    </div>
+
+    <div class="section" id="roas-section">
+        <h2>Channel ROAS (Attributed)</h2>
+        <div class="card">
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchRoasTab(this, 'even')">Even-Weight MTA</button>
+                <button class="tab-btn" onclick="switchRoasTab(this, 'modeled')">Modeled MTA</button>
+                <button class="tab-btn" onclick="switchRoasTab(this, 'platform')">Platform</button>
+            </div>
+            <div id="roas-tab-even" class="roas-tab-panel active">
+                <div class="table-scroll" id="roas-even-table-container"></div>
+            </div>
+            <div id="roas-tab-modeled" class="roas-tab-panel">
+                <div class="table-scroll" id="roas-modeled-table-container"></div>
+            </div>
+            <div id="roas-tab-platform" class="roas-tab-panel">
+                <div class="table-scroll" id="roas-platform-table-container"></div>
+            </div>
+            <div class="chart-note">
+                MTA tabs: Attributed Revenue / Platform Spend (Jul 2025+, Nov excluded due to partial BB data).
+                Platform tab: Platform-reported purchase conversions / spend (Meta 7d click, Google server-side). Jan 2024+.
+            </div>
+            <div class="takeaway" id="roas-takeaway"></div>
+        </div>
+    </div>
+
+    <div class="section" id="rev-section">
+        <h2>Channel Revenue Distribution (Attributed)</h2>
+        <div class="card">
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchRevTab(this, 'even')">Even-Weight MTA</button>
+                <button class="tab-btn" onclick="switchRevTab(this, 'modeled')">Modeled MTA</button>
+            </div>
+            <div id="rev-tab-even" class="tab-panel active">
+                <div class="table-scroll" id="rev-even-table-container"></div>
+            </div>
+            <div id="rev-tab-modeled" class="tab-panel">
+                <div class="table-scroll" id="rev-modeled-table-container"></div>
+            </div>
+            <div class="chart-note">
+                Even-weight: equal credit to all touchpoints. Modeled (normalized): algorithmic credit distribution.
+                Source: Bucket Breakdown (Jul-Nov 2025), Log Level MTA (Dec 2025+).
+            </div>
+            <div class="takeaway" id="rev-takeaway"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>PMax Deep Dive</h2>
+        <div class="card">
+            <div style="font-size: 0.85rem; line-height: 1.75; color: var(--text-primary);">
+                <ol style="padding-left: 1.25rem; margin: 0;">
+                    <li style="margin-bottom: 10px;"><strong>Total PMax ROAS halved after campaign fragmentation.</strong> At comparable spend (~$123-151K/mo), total PMax ran at 4.03x ROAS with 2 campaigns (Jan-Apr 2025) vs 2.08-2.21x with 4 campaigns (Jan-Feb 2026). 12-22% more spend produced 33-47% less revenue and 13-37% fewer conversions. The category splits did not generate incremental demand.</li>
+                    <li style="margin-bottom: 10px;"><strong>Furniture and Rugs campaigns cannibalized General's high-AOV conversions.</strong> General's revenue per conversion dropped from ~$509 to ~$278 — a 45% decline. The timing maps precisely to campaign launches: Furniture PMax (Oct 2025) caused a step-down from $420 to $352/conv; Rugs PMax (Dec 2025) caused another from $347 to $281/conv. The category campaigns now convert at $686/conv (Furniture) and $925/conv (Rugs) — the exact AOV range General used to capture.</li>
+                    <li style="margin-bottom: 10px;"><strong>Revenue per conversion collapse is the #1 ROAS driver.</strong> Decomposing General's Feb YoY decline (4.81x to 1.94x): rev/conv drop (-44%) explains more than CVR decline (-22%) or CPC increase (+7%). PMax General now converts 48% orders under $200 (pillows, baskets, bath) because the high-AOV products route to dedicated campaigns instead.</li>
+                    <li style="margin-bottom: 10px;"><strong>Category campaigns run at worse ROAS than General achieved with the same products.</strong> Furniture PMax: 1.24-1.72x ROAS. Rugs PMax: 2.93x. General used to convert these products within its broad optimization at 4-5x ROAS. Narrow product feeds compete in tighter auction spaces with higher CPMs and less algorithmic flexibility.</li>
+                    <li style="margin-bottom: 10px;"><strong>Bedding PMax (launched Jul 2023) is not the problem.</strong> It coexisted with General during the 4.03x baseline period. The damage came specifically from Furniture (Oct 2025) and Rugs (Dec 2025) launches, which removed the two highest-AOV categories from General's conversion pool.</li>
+                    <li style="margin-bottom: 10px;"><strong>Scale-up compounded the damage.</strong> During Aug-Nov 2025, total PMax spend tripled to $434K. General's algorithm learned to chase high-volume, low-AOV conversions to spend the budget. When spend was cut, the algorithm didn't reset — it kept targeting the cheap conversion pool, which is why rev/conv never recovered even at original spend levels.</li>
+                    <li style="margin-bottom: 10px;"><strong>A duplicate conversion tag was removed mid-2025.</strong> In Jan-Apr 2025, PMax had two purchase conversion actions firing: a web GTM tag (3,137 conversions) and a server-side GTM tag (2,815 conversions). The web version was removed by Dec 2025, leaving only server-side. Likely a correct cleanup of redundant tracking, but worth noting as a change in the optimization signal during this period.</li>
+                    <li style="margin-bottom: 10px;"><strong>The fix is consolidation, not optimization.</strong> General didn't structurally degrade — it got cannibalized. Pausing Furniture and Rugs campaigns should let General recapture high-AOV conversions and restore its ~$500/conv average. If category control is needed, use asset groups within a single campaign rather than separate campaigns to preserve Google's holistic optimization.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Meta Deep Dive</h2>
+        <div class="card">
+            <div style="font-size: 0.85rem; line-height: 1.75; color: var(--text-primary);">
+                <ol style="padding-left: 1.25rem; margin: 0;">
+                    <li style="margin-bottom: 10px;"><strong>Meta scaled successfully in 2024 at similar spend levels that failed in 2025.</strong> The account ran $271K (May 2024, 4.71x ROAS), $277K (Aug 2024, 3.51x), and $272K (Nov 2024, 5.87x) with strong performance. In 2025, comparable spend ($289-343K, Aug-Nov) produced 2.0-2.3x ROAS. The platform can support $270K+/month — but something changed in the account between the two periods.</li>
+                    <li style="margin-bottom: 10px;"><strong>A set of high-converting promotional campaigns (prefixed "L5") were removed between Dec 2024 and Jan 2025.</strong> In 2024, the account ran two campaign sets: "L5" promotional campaigns (Memorial Day ASC, BFCM ASC + remarketing + retention) at ~$160K/month with 4.8-5.1x ROAS, and "CZ" evergreen campaigns at ~$110K. The L5 campaigns disappeared entirely by Jan 2025, and the remaining campaigns tried to absorb ~$160K more spend — a 2.5-3x budget increase.</li>
+                    <li style="margin-bottom: 10px;"><strong>Promotional campaign investment collapsed.</strong> The L5 campaigns were dedicated promotional ASCs with sale-specific creative and urgency triggers. BFCM 2024 had $137K in dedicated promo spend across acquisition, remarketing, and retention. Black Friday 2025 had only $28K — an 80% reduction. Promotional campaigns convert better than evergreen at volume because they provide a concrete purchase incentive.</li>
+                    <li style="margin-bottom: 10px;"><strong>Evergreen campaigns don't scale the way promotional campaigns do.</strong> Account-level CPMs were stable ($12-22) throughout — the account successfully bought more impressions at similar CPMs. But conversion rates declined at higher spend. The incremental audience reached by evergreen campaigns is lower-intent than the audience reached by promotional campaigns with sale urgency. This is why 2024 got 2,378-2,934 conversions at $270K while 2025 got 1,230-1,510.</li>
+                    <li style="margin-bottom: 10px;"><strong>Downstream campaigns were also overspent.</strong> Retention: $8-13K at 14-27x ROAS grew to $57-94K at 3.3-3.5x. Retargeting: $10-18K at 8-11x grew to $37-85K at 2.7-3.2x. These 3-7x budget increases drove most of their ROAS decline through diminishing returns.</li>
+                    <li style="margin-bottom: 10px;"><strong>Non-purchase spend increased significantly.</strong> Awareness, traffic, add-to-cart, and trade campaigns: $14K (Nov 2024) vs $57K (Nov 2025). These campaigns produce near-zero purchase conversions and dilute overall account ROAS.</li>
+                    <li style="margin-bottom: 10px;"><strong>When spend normalized, ROAS recovered.</strong> Feb 2026: $142K total, 3.26x ROAS (12 campaigns). Jan 2025: $119K, 6.43x (13 campaigns). The account is not structurally damaged — it's a spend allocation problem, not a platform problem.</li>
+                    <li style="margin-bottom: 10px;"><strong>Direct and organic channels were not impacted.</strong> Direct + Organic Search held 25-29% of total revenue throughout. No measurable brand erosion from the prospecting changes.</li>
+                </ol>
+                <div style="margin-top: 16px; padding: 14px 18px; background: #FFF7ED; border-left: 3px solid #E76F51; border-radius: 0 8px 8px 0;">
+                    <strong style="color: #E76F51;">What made scaling work in 2024 that's missing in 2025?</strong>
+                    <ul style="margin-top: 8px; padding-left: 1.25rem;">
+                        <li style="margin-bottom: 6px;"><strong>Promotional campaign engine:</strong> The 2024 account ran dedicated promotional ASC + remarketing + retention campaigns around sale events (Memorial Day, BFCM). These converted 2-3x better at high spend than evergreen because urgency drives action. Rebuilding a similar promotional campaign capability is likely prerequisite for scaling back to $250K+.</li>
+                        <li style="margin-bottom: 6px;"><strong>Complementary campaign sets:</strong> In 2024, the account effectively had two campaign sets (promotional + evergreen) each operating at proven spend levels (~$110-160K). When one set disappeared and the other tried to absorb both budgets, diminishing returns hit. Scaling may require distinct campaign strategies rather than simply increasing budget on existing campaigns.</li>
+                        <li style="margin-bottom: 6px;"><strong>Promotional creative volume:</strong> Sale events naturally generate fresh creative (new offers, urgency messaging, event-specific assets). Evergreen relies on the same creative longer, leading to faster fatigue at high frequency. Scaling evergreen spend likely requires proportionally more creative production.</li>
+                        <li style="margin-bottom: 6px;"><strong>Diminishing returns on downstream:</strong> Retention and retargeting budgets should be sized to their audience pools, not scaled in proportion to prospecting. These pools are finite and saturate at lower spend thresholds.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        Data sources: Snowflake (PROD.ANALYTICS_CITIZENRY, ROCKERBOX_CITIZENRY.PUBLIC), P&L actuals from brief.
+    </footer>
+
+    <script>
+    const COLORS = {
+        efficiency: '#2D6A4F',
+        plRoas: '#264653',
+        rbRoas: '#E76F51',
+    };
+
+    function fmt$(n) { return '$' + (n || 0).toLocaleString(); }
+    function fmtPct(n) { return (n || 0).toFixed(1) + '%'; }
+    function monthLabel(m) {
+        const [y, mo] = m.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return months[parseInt(mo) - 1] + ' ' + y.slice(2);
+    }
+
+    function switchRevTab(btn, tab) {
+        const section = document.getElementById('rev-section');
+        section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('rev-tab-' + tab).classList.add('active');
+        btn.classList.add('active');
+    }
+
+    function switchRoasTab(btn, tab) {
+        const section = document.getElementById('roas-section');
+        section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        section.querySelectorAll('.roas-tab-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('roas-tab-' + tab).classList.add('active');
+        btn.classList.add('active');
+    }
+
+    // =========================================================================
+    // Chart 1: Efficiency & ROAS (exclude P&L once RB available)
+    // =========================================================================
+    function renderEfficiencyRoasChart(items) {
+        const labels = items.map(d => monthLabel(d.month));
+        const effData = items.map(d => d.efficiency_pct);
+
+        // Total ROAS: P&L for Jan-Jun 2025, Rockerbox for Jul 2025+
+        // Exclude P&L ROAS once Rockerbox is available
+        const roasData = items.map(d => d.total_roas);
+
+        const boundaryIdx = items.findIndex(d => d.roas_source === 'Rockerbox');
+
+        new Chart(document.getElementById('efficiencyRoasChart'), {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: 'Efficiency %',
+                        data: effData,
+                        yAxisID: 'y',
+                        borderColor: COLORS.efficiency,
+                        backgroundColor: COLORS.efficiency + '15',
+                        borderWidth: 2.5,
+                        pointRadius: 4,
+                        pointBackgroundColor: COLORS.efficiency,
+                        tension: 0.3,
+                        fill: true,
+                    },
+                    {
+                        label: 'ROAS',
+                        data: roasData,
+                        yAxisID: 'y1',
+                        borderWidth: 2.5,
+                        pointRadius: 4,
+                        tension: 0.3,
+                        spanGaps: false,
+                        segment: {
+                            borderColor: ctx => ctx.p0DataIndex < boundaryIdx ? COLORS.plRoas : COLORS.rbRoas,
+                        },
+                        pointBackgroundColor: roasData.map((_, i) => i < boundaryIdx ? COLORS.plRoas : COLORS.rbRoas),
+                        borderColor: COLORS.plRoas,
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } },
+                    annotation: {
+                        annotations: {
+                            sourceChange: {
+                                type: 'line',
+                                xMin: boundaryIdx - 0.5, xMax: boundaryIdx - 0.5,
+                                borderColor: '#bbb', borderDash: [4, 4], borderWidth: 1,
+                                label: {
+                                    content: 'P&L ROAS  |  Rockerbox ROAS',
+                                    display: true, position: 'start',
+                                    backgroundColor: 'rgba(0,0,0,0.55)', color: '#fff',
+                                    font: { size: 10 }, padding: 4,
+                                }
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                if (ctx.dataset.yAxisID === 'y') return ctx.dataset.label + ': ' + fmtPct(ctx.raw);
+                                const src = items[ctx.dataIndex].roas_source;
+                                return 'ROAS (' + src + '): ' + (ctx.raw ? ctx.raw.toFixed(2) + 'x' : 'N/A');
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear', position: 'left',
+                        title: { display: true, text: 'Efficiency %', font: { size: 12 } },
+                        min: 50, max: 95,
+                        ticks: { callback: v => v + '%' },
+                        grid: { color: '#f0f0f0' },
+                    },
+                    y1: {
+                        type: 'linear', position: 'right',
+                        title: { display: true, text: 'ROAS', font: { size: 12 } },
+                        min: 0, max: 7,
+                        ticks: { callback: v => v.toFixed(1) + 'x' },
+                        grid: { drawOnChartArea: false },
+                    }
+                }
+            }
+        });
+
+        // Takeaway
+        document.getElementById('eff-takeaway').innerHTML =
+            '<strong>Takeaway:</strong> Efficiency and ROAS began diverging in March 2025. ' +
+            'Efficiency climbed to 85-87% (Mar-May) while ROAS continued declining from 4.43x to the 3.4x range. ' +
+            'The two metrics are inversely correlated (r = -0.48), driven by the shift toward high-AOV MTO items ' +
+            '(which score well on efficiency) while paid media costs increased faster than revenue.';
+    }
+
+    // =========================================================================
+    // Channel Spend Table
+    // =========================================================================
+    function renderChannelSpendTable(items) {
+        const buckets = ['Paid Social', 'PMax', 'Paid Search/Shopping', 'Direct Mail', 'Affiliate'];
+
+        let html = '<table class="data-table"><tr><th>Month</th>';
+        buckets.forEach(b => { html += '<th>' + b + '</th>'; });
+        html += '<th>Total</th><th>ROAS</th><th>Src</th></tr>';
+
+        items.forEach(d => {
+            html += '<tr><td>' + monthLabel(d.month) + '</td>';
+            buckets.forEach(b => {
+                const val = d[b] || 0;
+                const pct = d.total > 0 ? ((val / d.total) * 100).toFixed(1) : '0.0';
+                html += '<td>' + fmt$(val) + ' <span class="pct">(' + pct + '%)</span></td>';
+            });
+            html += '<td>' + fmt$(d.total) + '</td>';
+            html += '<td>' + (d.total_roas ? d.total_roas.toFixed(2) + 'x' : '-') + '</td>';
+            html += '<td>' + (d.source === 'P&L' ? 'P&L' : 'RB') + '</td></tr>';
+        });
+        html += '</table>';
+        document.getElementById('spend-table-container').innerHTML = html;
+
+        // Takeaway
+        const first = items[0];
+        const last = items[items.length - 1];
+        const peakSpend = items.reduce((max, d) => d.total > max.total ? d : max, items[0]);
+        document.getElementById('spend-takeaway').innerHTML =
+            '<strong>Takeaway:</strong> Total tracked spend peaked at ' + fmt$(peakSpend.total) +
+            ' in ' + monthLabel(peakSpend.month) + ' and has since declined to ' + fmt$(last.total) +
+            ' (' + monthLabel(last.month) + '). Paid Social and PMax are the two dominant buckets. ' +
+            'Direct Mail spend is volatile (driven by catalog drops). ' +
+            'Jan-Jun 2025 uses P&L actuals; Jul 2025+ uses Rockerbox (AGGREGATE_MTA).';
+    }
+
+    // =========================================================================
+    // Channel Revenue Tables (Even + Modeled)
+    // =========================================================================
+    function renderChannelRevenueTable(items, containerId) {
+        const channelOrder = ['Paid Social', 'Paid Search', 'Performance Max', 'Organic Search', 'Direct', 'Email/SMS', 'Other'];
+        let html = '<table class="data-table"><tr><th>Month</th>';
+        channelOrder.forEach(ch => { html += '<th>' + ch + '</th>'; });
+        html += '<th>Total</th><th>Src</th></tr>';
+
+        items.forEach(d => {
+            html += '<tr><td>' + monthLabel(d.month) + '</td>';
+            channelOrder.forEach(ch => {
+                const val = (d.channels && d.channels[ch]) || 0;
+                const pct = d.total > 0 ? ((val / d.total) * 100).toFixed(1) : '0.0';
+                html += '<td>' + fmt$(val) + ' <span class="pct">(' + pct + '%)</span></td>';
+            });
+            html += '<td>' + fmt$(d.total) + '</td>';
+            html += '<td>' + (d.source === 'bucket_breakdown' ? 'BB' : 'MTA') + '</td></tr>';
+        });
+        html += '</table>';
+        document.getElementById(containerId).innerHTML = html;
+    }
+
+    function renderRevenueSection(evenItems, modeledItems) {
+        renderChannelRevenueTable(evenItems, 'rev-even-table-container');
+        renderChannelRevenueTable(modeledItems, 'rev-modeled-table-container');
+
+        // Takeaway based on even-weight data
+        if (evenItems.length > 0) {
+            const first = evenItems[0];
+            const last = evenItems[evenItems.length - 1];
+            const getPct = (d, ch) => d.total > 0 ? (((d.channels && d.channels[ch]) || 0) / d.total * 100).toFixed(0) : 0;
+            document.getElementById('rev-takeaway').innerHTML =
+                '<strong>Takeaway:</strong> Paid Social\'s share of attributed revenue declined from ' +
+                getPct(first, 'Paid Social') + '% (' + monthLabel(first.month) + ') to ' +
+                getPct(last, 'Paid Social') + '% (' + monthLabel(last.month) +
+                '), while Organic Search and Direct have remained stable -- indicating paid channels are contributing ' +
+                'a shrinking portion of the attribution pie. Performance Max holds a steady ~10-14% share. ' +
+                'Compare the Even-Weight and Modeled tabs to see how different attribution methodologies shift credit across channels.';
+        }
+    }
+
+    // =========================================================================
+    // Channel ROAS Table
+    // =========================================================================
+    function fmtRoas(val) {
+        if (val == null) return '-';
+        const cls = val >= 3 ? 'roas-good' : val >= 1.5 ? 'roas-ok' : 'roas-bad';
+        return '<span class="' + cls + '">' + val.toFixed(2) + 'x</span>';
+    }
+
+    function renderChannelRoasTable(items, containerId) {
+        const channels = ['Paid Social', 'PMax', 'Paid Search', 'Direct Mail', 'Affiliate'];
+        let html = '<table class="data-table"><tr><th>Month</th>';
+        channels.forEach(ch => { html += '<th>' + ch + '</th>'; });
+        html += '<th>Total</th><th>Src</th></tr>';
+
+        items.forEach(d => {
+            html += '<tr><td>' + monthLabel(d.month) + '</td>';
+            channels.forEach(ch => {
+                const chData = (d.channels && d.channels[ch]) || {};
+                const roas = chData.roas;
+                const spend = chData.spend || 0;
+                const rev = chData.revenue || 0;
+                const tooltip = 'Rev: ' + fmt$(rev) + ' / Spend: ' + fmt$(spend);
+                html += '<td title="' + tooltip + '">' + fmtRoas(roas) + '</td>';
+            });
+            html += '<td title="Rev: ' + fmt$(d.total_revenue) + ' / Spend: ' + fmt$(d.total_spend) + '">' + fmtRoas(d.total_roas) + '</td>';
+            html += '<td>' + (d.source === 'bucket_breakdown' ? 'BB' : 'MTA') + '</td></tr>';
+        });
+        html += '</table>';
+        document.getElementById(containerId).innerHTML = html;
+    }
+
+    function renderPlatformRoasTable(items, containerId) {
+        const channels = ['Paid Social', 'PMax', 'Paid Search'];
+        let html = '<table class="data-table"><tr><th>Month</th>';
+        channels.forEach(ch => { html += '<th>' + ch + '</th>'; });
+        html += '<th>Total</th></tr>';
+
+        items.forEach(d => {
+            html += '<tr><td>' + monthLabel(d.month) + '</td>';
+            channels.forEach(ch => {
+                const chData = (d.channels && d.channels[ch]) || {};
+                const roas = chData.roas;
+                const spend = chData.spend || 0;
+                const rev = chData.revenue || 0;
+                const tooltip = 'Platform Rev: ' + fmt$(rev) + ' / Spend: ' + fmt$(spend);
+                html += '<td title="' + tooltip + '">' + fmtRoas(roas) + '</td>';
+            });
+            html += '<td title="Rev: ' + fmt$(d.total_revenue) + ' / Spend: ' + fmt$(d.total_spend) + '">' + fmtRoas(d.total_roas) + '</td>';
+            html += '</tr>';
+        });
+        html += '</table>';
+        document.getElementById(containerId).innerHTML = html;
+    }
+
+    function renderChannelRoasSection(evenItems, modeledItems, platformItems) {
+        renderChannelRoasTable(evenItems, 'roas-even-table-container');
+        renderChannelRoasTable(modeledItems, 'roas-modeled-table-container');
+        renderPlatformRoasTable(platformItems, 'roas-platform-table-container');
+
+        if (evenItems.length > 0) {
+            const first = evenItems[0];
+            const last = evenItems[evenItems.length - 1];
+            const getRoas = (d, ch) => (d.channels && d.channels[ch]) ? d.channels[ch].roas : null;
+            const psFirst = getRoas(first, 'Paid Social');
+            const psLast = getRoas(last, 'Paid Social');
+            const pmFirst = getRoas(first, 'PMax');
+            const pmLast = getRoas(last, 'PMax');
+            document.getElementById('roas-takeaway').innerHTML =
+                '<strong>Takeaway:</strong> Paid Social MTA ROAS declined from ' +
+                (psFirst ? psFirst.toFixed(2) + 'x' : 'N/A') + ' (' + monthLabel(first.month) + ') to ' +
+                (psLast ? psLast.toFixed(2) + 'x' : 'N/A') + ' (' + monthLabel(last.month) +
+                '), while PMax held steadier (' +
+                (pmFirst ? pmFirst.toFixed(2) + 'x' : 'N/A') + ' to ' +
+                (pmLast ? pmLast.toFixed(2) + 'x' : 'N/A') +
+                '). Platform tab shows platform-reported ROAS (Meta 7d click, Google server-side) back to Jan 2024 for longer-term trends. ' +
+                'Hover over values for underlying spend and revenue.';
+        }
+    }
+
+    // =========================================================================
+    // Init
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('./dashboard_data.json');
+            if (!response.ok) throw new Error('HTTP ' + response.status + '. Run query_dashboard_data.py first.');
+            const data = await response.json();
+
+            document.getElementById('header-meta').textContent =
+                data.date_range.start + ' - ' + data.date_range.end + ' MTD  |  Generated: ' +
+                new Date(data.generated_at).toLocaleDateString();
+
+            renderEfficiencyRoasChart(data.efficiency_roas);
+            renderChannelSpendTable(data.channel_spend);
+            renderChannelRoasSection(data.channel_roas_even || [], data.channel_roas_modeled || [], data.channel_roas_platform || []);
+            renderRevenueSection(data.channel_revenue_even, data.channel_revenue_modeled);
+
+            document.getElementById('footer').textContent +=
+                '  |  Generated ' + new Date(data.generated_at).toLocaleString();
+        } catch (err) {
+            document.getElementById('error').textContent = 'Failed to load dashboard data: ' + err.message;
+            document.getElementById('error').style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>

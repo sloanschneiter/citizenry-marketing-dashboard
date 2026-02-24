@@ -1,0 +1,1627 @@
+{
+  "generated_at": "2026-02-18T16:48:17.883259",
+  "date_range": {
+    "start": "2025-01",
+    "end": "2026-02"
+  },
+  "efficiency_roas": [
+    {
+      "month": "2025-01",
+      "efficiency_pct": 66.0,
+      "pl_roas": 4.43,
+      "rb_roas": null,
+      "contrib_profit": 526000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 4.43,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-02",
+      "efficiency_pct": 71.6,
+      "pl_roas": 4.11,
+      "rb_roas": null,
+      "contrib_profit": 527000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 4.11,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-03",
+      "efficiency_pct": 87.3,
+      "pl_roas": 3.58,
+      "rb_roas": null,
+      "contrib_profit": 335000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 3.58,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-04",
+      "efficiency_pct": 85.5,
+      "pl_roas": 3.39,
+      "rb_roas": null,
+      "contrib_profit": 292000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 3.39,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-05",
+      "efficiency_pct": 84.8,
+      "pl_roas": 3.44,
+      "rb_roas": null,
+      "contrib_profit": 470000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 3.44,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-06",
+      "efficiency_pct": 81.1,
+      "pl_roas": 3.68,
+      "rb_roas": null,
+      "contrib_profit": 311000,
+      "conv_revenue": null,
+      "platform_spend": null,
+      "total_roas": 3.68,
+      "roas_source": "P&L"
+    },
+    {
+      "month": "2025-07",
+      "efficiency_pct": 83.3,
+      "pl_roas": 3.62,
+      "rb_roas": 3.32,
+      "contrib_profit": 368000,
+      "conv_revenue": 521498,
+      "platform_spend": 157304,
+      "total_roas": 3.32,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2025-08",
+      "efficiency_pct": 70.6,
+      "pl_roas": 3.05,
+      "rb_roas": 3.51,
+      "contrib_profit": 353000,
+      "conv_revenue": 2465712,
+      "platform_spend": 702999,
+      "total_roas": 3.51,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2025-09",
+      "efficiency_pct": 69.7,
+      "pl_roas": 3.19,
+      "rb_roas": 3.59,
+      "contrib_profit": 379000,
+      "conv_revenue": 2608328,
+      "platform_spend": 726528,
+      "total_roas": 3.59,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2025-10",
+      "efficiency_pct": 69.2,
+      "pl_roas": 2.9,
+      "rb_roas": 3.29,
+      "contrib_profit": 192000,
+      "conv_revenue": 2010975,
+      "platform_spend": 611272,
+      "total_roas": 3.29,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2025-11",
+      "efficiency_pct": 66.4,
+      "pl_roas": 3.04,
+      "rb_roas": 3.57,
+      "contrib_profit": 316000,
+      "conv_revenue": 3175349,
+      "platform_spend": 890141,
+      "total_roas": 3.57,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2025-12",
+      "efficiency_pct": 64.6,
+      "pl_roas": 3.17,
+      "rb_roas": 3.95,
+      "contrib_profit": 196000,
+      "conv_revenue": 1776016,
+      "platform_spend": 449329,
+      "total_roas": 3.95,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2026-01",
+      "efficiency_pct": 65.3,
+      "pl_roas": 2.7,
+      "rb_roas": 3.86,
+      "contrib_profit": 222000,
+      "conv_revenue": 1498900,
+      "platform_spend": 388010,
+      "total_roas": 3.86,
+      "roas_source": "Rockerbox"
+    },
+    {
+      "month": "2026-02",
+      "efficiency_pct": 63.6,
+      "pl_roas": null,
+      "rb_roas": 4.97,
+      "contrib_profit": null,
+      "conv_revenue": 1333721,
+      "platform_spend": 268561,
+      "total_roas": 4.97,
+      "roas_source": "Rockerbox"
+    }
+  ],
+  "channel_spend": [
+    {
+      "month": "2025-01",
+      "source": "P&L",
+      "Paid Social": 181414,
+      "PMax": 123274,
+      "Paid Search/Shopping": 70648,
+      "Direct Mail": 70492,
+      "Affiliate": 9859,
+      "total": 455687,
+      "total_roas": 4.43
+    },
+    {
+      "month": "2025-02",
+      "source": "P&L",
+      "Paid Social": 180641,
+      "PMax": 110162,
+      "Paid Search/Shopping": 73858,
+      "Direct Mail": 111577,
+      "Affiliate": 22069,
+      "total": 498307,
+      "total_roas": 4.11
+    },
+    {
+      "month": "2025-03",
+      "source": "P&L",
+      "Paid Social": 181781,
+      "PMax": 129196,
+      "Paid Search/Shopping": 65684,
+      "Direct Mail": 71869,
+      "Affiliate": 15395,
+      "total": 463925,
+      "total_roas": 3.58
+    },
+    {
+      "month": "2025-04",
+      "source": "P&L",
+      "Paid Social": 219402,
+      "PMax": 130958,
+      "Paid Search/Shopping": 78185,
+      "Direct Mail": 57725,
+      "Affiliate": 12735,
+      "total": 499005,
+      "total_roas": 3.39
+    },
+    {
+      "month": "2025-05",
+      "source": "P&L",
+      "Paid Social": 297631,
+      "PMax": 253154,
+      "Paid Search/Shopping": 81778,
+      "Direct Mail": 132310,
+      "Affiliate": 28273,
+      "total": 793146,
+      "total_roas": 3.44
+    },
+    {
+      "month": "2025-06",
+      "source": "P&L",
+      "Paid Social": 184071,
+      "PMax": 123706,
+      "Paid Search/Shopping": 58755,
+      "Direct Mail": 58814,
+      "Affiliate": 13798,
+      "total": 439144,
+      "total_roas": 3.68
+    },
+    {
+      "month": "2025-07",
+      "source": "Rockerbox",
+      "Paid Social": 196477,
+      "PMax": 139876,
+      "Paid Search/Shopping": 63528,
+      "Direct Mail": 34146,
+      "Affiliate": 17139,
+      "total": 451166,
+      "total_roas": 3.32
+    },
+    {
+      "month": "2025-08",
+      "source": "Rockerbox",
+      "Paid Social": 338923,
+      "PMax": 289684,
+      "Paid Search/Shopping": 74390,
+      "Direct Mail": 42597,
+      "Affiliate": 14837,
+      "total": 760431,
+      "total_roas": 3.51
+    },
+    {
+      "month": "2025-09",
+      "source": "Rockerbox",
+      "Paid Social": 360377,
+      "PMax": 272635,
+      "Paid Search/Shopping": 93513,
+      "Direct Mail": 48717,
+      "Affiliate": 15084,
+      "total": 790326,
+      "total_roas": 3.59
+    },
+    {
+      "month": "2025-10",
+      "source": "Rockerbox",
+      "Paid Social": 287638,
+      "PMax": 275195,
+      "Paid Search/Shopping": 48421,
+      "Direct Mail": 61045,
+      "Affiliate": 14239,
+      "total": 686538,
+      "total_roas": 3.29
+    },
+    {
+      "month": "2025-11",
+      "source": "Rockerbox",
+      "Paid Social": 412922,
+      "PMax": 389527,
+      "Paid Search/Shopping": 87673,
+      "Direct Mail": 247736,
+      "Affiliate": 17585,
+      "total": 1155443,
+      "total_roas": 3.57
+    },
+    {
+      "month": "2025-12",
+      "source": "Rockerbox",
+      "Paid Social": 214751,
+      "PMax": 171763,
+      "Paid Search/Shopping": 62804,
+      "Direct Mail": 34422,
+      "Affiliate": 2753,
+      "total": 486493,
+      "total_roas": 3.95
+    },
+    {
+      "month": "2026-01",
+      "source": "Rockerbox",
+      "Paid Social": 186362,
+      "PMax": 137816,
+      "Paid Search/Shopping": 63833,
+      "Direct Mail": 48622,
+      "Affiliate": 0,
+      "total": 436633,
+      "total_roas": 3.86
+    },
+    {
+      "month": "2026-02",
+      "source": "Rockerbox",
+      "Paid Social": 115620,
+      "PMax": 115065,
+      "Paid Search/Shopping": 37874,
+      "Direct Mail": 6932,
+      "Affiliate": 0,
+      "total": 275491,
+      "total_roas": 4.97
+    }
+  ],
+  "channel_revenue_even": [
+    {
+      "month": "2025-07",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 672241,
+        "Paid Search": 230437,
+        "Direct": 184087,
+        "Organic Search": 183754,
+        "Email/SMS": 177914,
+        "Performance Max": 156548,
+        "Other": 274601
+      },
+      "total": 1879582
+    },
+    {
+      "month": "2025-08",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 805518,
+        "Performance Max": 329109,
+        "Paid Search": 299658,
+        "Email/SMS": 264582,
+        "Organic Search": 220794,
+        "Direct": 195996,
+        "Other": 350055
+      },
+      "total": 2465712
+    },
+    {
+      "month": "2025-09",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 667324,
+        "Paid Search": 419130,
+        "Performance Max": 384440,
+        "Organic Search": 256557,
+        "Direct": 253306,
+        "Email/SMS": 263942,
+        "Other": 363628
+      },
+      "total": 2608327
+    },
+    {
+      "month": "2025-10",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 430389,
+        "Performance Max": 323991,
+        "Paid Search": 270853,
+        "Organic Search": 268742,
+        "Direct": 220080,
+        "Email/SMS": 178513,
+        "Other": 318405
+      },
+      "total": 2010973
+    },
+    {
+      "month": "2025-11",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 112094,
+        "Organic Search": 88049,
+        "Performance Max": 86329,
+        "Direct": 72542,
+        "Paid Search": 70718,
+        "Email/SMS": 60865,
+        "Other": 143336
+      },
+      "total": 633933
+    },
+    {
+      "month": "2025-12",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 362265,
+        "Other": 493929,
+        "Paid Search": 251954,
+        "Performance Max": 232560,
+        "Organic Search": 163575,
+        "Email/SMS": 153170,
+        "Direct": 118563
+      },
+      "total": 1776016
+    },
+    {
+      "month": "2026-01",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 320099,
+        "Other": 385891,
+        "Paid Search": 219268,
+        "Performance Max": 197535,
+        "Organic Search": 148171,
+        "Email/SMS": 140687,
+        "Direct": 87249
+      },
+      "total": 1498900
+    },
+    {
+      "month": "2026-02",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 264880,
+        "Other": 359748,
+        "Paid Search": 184436,
+        "Performance Max": 183055,
+        "Organic Search": 128168,
+        "Email/SMS": 117044,
+        "Direct": 96391
+      },
+      "total": 1333722
+    }
+  ],
+  "channel_revenue_modeled": [
+    {
+      "month": "2025-07",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 613817,
+        "Paid Search": 245803,
+        "Direct": 147181,
+        "Organic Search": 177404,
+        "Email/SMS": 170362,
+        "Performance Max": 160873,
+        "Other": 220713
+      },
+      "total": 1736153
+    },
+    {
+      "month": "2025-08",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 816473,
+        "Performance Max": 334070,
+        "Paid Search": 322835,
+        "Email/SMS": 281674,
+        "Organic Search": 217997,
+        "Direct": 195996,
+        "Other": 296667
+      },
+      "total": 2465712
+    },
+    {
+      "month": "2025-09",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 673732,
+        "Paid Search": 451283,
+        "Performance Max": 388519,
+        "Organic Search": 252417,
+        "Direct": 253306,
+        "Email/SMS": 279058,
+        "Other": 310013
+      },
+      "total": 2608328
+    },
+    {
+      "month": "2025-10",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 444817,
+        "Performance Max": 325789,
+        "Paid Search": 294449,
+        "Organic Search": 266199,
+        "Direct": 220080,
+        "Email/SMS": 196431,
+        "Other": 263210
+      },
+      "total": 2010975
+    },
+    {
+      "month": "2025-11",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": 116495,
+        "Organic Search": 85727,
+        "Performance Max": 88799,
+        "Direct": 72542,
+        "Paid Search": 77158,
+        "Email/SMS": 69426,
+        "Other": 123787
+      },
+      "total": 633934
+    },
+    {
+      "month": "2025-12",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 391298,
+        "Other": 373400,
+        "Paid Search": 294393,
+        "Performance Max": 245034,
+        "Organic Search": 173585,
+        "Email/SMS": 179744,
+        "Direct": 118563
+      },
+      "total": 1776017
+    },
+    {
+      "month": "2026-01",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 335873,
+        "Other": 301584,
+        "Paid Search": 252602,
+        "Performance Max": 205841,
+        "Organic Search": 150426,
+        "Email/SMS": 165325,
+        "Direct": 87249
+      },
+      "total": 1498900
+    },
+    {
+      "month": "2026-02",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": 283289,
+        "Other": 291627,
+        "Paid Search": 206125,
+        "Performance Max": 190284,
+        "Organic Search": 129667,
+        "Email/SMS": 136337,
+        "Direct": 96391
+      },
+      "total": 1333720
+    }
+  ],
+  "channel_roas_platform": [
+    {
+      "month": "2024-01",
+      "channels": {
+        "Paid Social": {
+          "spend": 135244,
+          "revenue": 244170,
+          "roas": 1.81
+        },
+        "PMax": {
+          "spend": 78005,
+          "revenue": 332928,
+          "roas": 4.27
+        },
+        "Paid Search": {
+          "spend": 32907,
+          "revenue": 573523,
+          "roas": 17.43
+        }
+      },
+      "total_spend": 246156,
+      "total_revenue": 1150621,
+      "total_roas": 4.67
+    },
+    {
+      "month": "2024-02",
+      "channels": {
+        "Paid Social": {
+          "spend": 99912,
+          "revenue": 219564,
+          "roas": 2.2
+        },
+        "PMax": {
+          "spend": 74846,
+          "revenue": 338750,
+          "roas": 4.53
+        },
+        "Paid Search": {
+          "spend": 28625,
+          "revenue": 543669,
+          "roas": 18.99
+        }
+      },
+      "total_spend": 203383,
+      "total_revenue": 1101983,
+      "total_roas": 5.42
+    },
+    {
+      "month": "2024-03",
+      "channels": {
+        "Paid Social": {
+          "spend": 126393,
+          "revenue": 173188,
+          "roas": 1.37
+        },
+        "PMax": {
+          "spend": 81383,
+          "revenue": 379956,
+          "roas": 4.67
+        },
+        "Paid Search": {
+          "spend": 34274,
+          "revenue": 539130,
+          "roas": 15.73
+        }
+      },
+      "total_spend": 242050,
+      "total_revenue": 1092274,
+      "total_roas": 4.51
+    },
+    {
+      "month": "2024-04",
+      "channels": {
+        "Paid Social": {
+          "spend": 176637,
+          "revenue": 289413,
+          "roas": 1.64
+        },
+        "PMax": {
+          "spend": 89571,
+          "revenue": 438732,
+          "roas": 4.9
+        },
+        "Paid Search": {
+          "spend": 61391,
+          "revenue": 745499,
+          "roas": 12.14
+        }
+      },
+      "total_spend": 327599,
+      "total_revenue": 1473644,
+      "total_roas": 4.5
+    },
+    {
+      "month": "2024-05",
+      "channels": {
+        "Paid Social": {
+          "spend": 270933,
+          "revenue": 1275189,
+          "roas": 4.71
+        },
+        "PMax": {
+          "spend": 117542,
+          "revenue": 678215,
+          "roas": 5.77
+        },
+        "Paid Search": {
+          "spend": 101236,
+          "revenue": 1341624,
+          "roas": 13.25
+        }
+      },
+      "total_spend": 489711,
+      "total_revenue": 3295028,
+      "total_roas": 6.73
+    },
+    {
+      "month": "2024-06",
+      "channels": {
+        "Paid Social": {
+          "spend": 178679,
+          "revenue": 467406,
+          "roas": 2.62
+        },
+        "PMax": {
+          "spend": 79374,
+          "revenue": 397742,
+          "roas": 5.01
+        },
+        "Paid Search": {
+          "spend": 61126,
+          "revenue": 715250,
+          "roas": 11.7
+        }
+      },
+      "total_spend": 319179,
+      "total_revenue": 1580398,
+      "total_roas": 4.95
+    },
+    {
+      "month": "2024-07",
+      "channels": {
+        "Paid Social": {
+          "spend": 207521,
+          "revenue": 792469,
+          "roas": 3.82
+        },
+        "PMax": {
+          "spend": 75400,
+          "revenue": 383197,
+          "roas": 5.08
+        },
+        "Paid Search": {
+          "spend": 84564,
+          "revenue": 875568,
+          "roas": 10.35
+        }
+      },
+      "total_spend": 367485,
+      "total_revenue": 2051234,
+      "total_roas": 5.58
+    },
+    {
+      "month": "2024-08",
+      "channels": {
+        "Paid Social": {
+          "spend": 276697,
+          "revenue": 971611,
+          "roas": 3.51
+        },
+        "PMax": {
+          "spend": 125399,
+          "revenue": 596695,
+          "roas": 4.76
+        },
+        "Paid Search": {
+          "spend": 105189,
+          "revenue": 1046507,
+          "roas": 9.95
+        }
+      },
+      "total_spend": 507285,
+      "total_revenue": 2614813,
+      "total_roas": 5.15
+    },
+    {
+      "month": "2024-09",
+      "channels": {
+        "Paid Social": {
+          "spend": 221663,
+          "revenue": 1036773,
+          "roas": 4.68
+        },
+        "PMax": {
+          "spend": 76853,
+          "revenue": 340710,
+          "roas": 4.43
+        },
+        "Paid Search": {
+          "spend": 80481,
+          "revenue": 965540,
+          "roas": 12.0
+        }
+      },
+      "total_spend": 378997,
+      "total_revenue": 2343023,
+      "total_roas": 6.18
+    },
+    {
+      "month": "2024-10",
+      "channels": {
+        "Paid Social": {
+          "spend": 193375,
+          "revenue": 769011,
+          "roas": 3.98
+        },
+        "PMax": {
+          "spend": 81510,
+          "revenue": 401583,
+          "roas": 4.93
+        },
+        "Paid Search": {
+          "spend": 74546,
+          "revenue": 944415,
+          "roas": 12.67
+        }
+      },
+      "total_spend": 349431,
+      "total_revenue": 2115009,
+      "total_roas": 6.05
+    },
+    {
+      "month": "2024-11",
+      "channels": {
+        "Paid Social": {
+          "spend": 271820,
+          "revenue": 1595689,
+          "roas": 5.87
+        },
+        "PMax": {
+          "spend": 128321,
+          "revenue": 561491,
+          "roas": 4.38
+        },
+        "Paid Search": {
+          "spend": 100065,
+          "revenue": 1574888,
+          "roas": 15.74
+        }
+      },
+      "total_spend": 500206,
+      "total_revenue": 3732068,
+      "total_roas": 7.46
+    },
+    {
+      "month": "2024-12",
+      "channels": {
+        "Paid Social": {
+          "spend": 193711,
+          "revenue": 859219,
+          "roas": 4.44
+        },
+        "PMax": {
+          "spend": 82475,
+          "revenue": 352646,
+          "roas": 4.28
+        },
+        "Paid Search": {
+          "spend": 60357,
+          "revenue": 666148,
+          "roas": 11.04
+        }
+      },
+      "total_spend": 336543,
+      "total_revenue": 1878013,
+      "total_roas": 5.58
+    },
+    {
+      "month": "2025-01",
+      "channels": {
+        "Paid Social": {
+          "spend": 119273,
+          "revenue": 766195,
+          "roas": 6.42
+        },
+        "PMax": {
+          "spend": 123177,
+          "revenue": 537230,
+          "roas": 4.36
+        },
+        "Paid Search": {
+          "spend": 68616,
+          "revenue": 801091,
+          "roas": 11.67
+        }
+      },
+      "total_spend": 311066,
+      "total_revenue": 2104516,
+      "total_roas": 6.77
+    },
+    {
+      "month": "2025-02",
+      "channels": {
+        "Paid Social": {
+          "spend": 130401,
+          "revenue": 766677,
+          "roas": 5.88
+        },
+        "PMax": {
+          "spend": 110182,
+          "revenue": 474844,
+          "roas": 4.31
+        },
+        "Paid Search": {
+          "spend": 73335,
+          "revenue": 802309,
+          "roas": 10.94
+        }
+      },
+      "total_spend": 313918,
+      "total_revenue": 2043830,
+      "total_roas": 6.51
+    },
+    {
+      "month": "2025-03",
+      "channels": {
+        "Paid Social": {
+          "spend": 120814,
+          "revenue": 550398,
+          "roas": 4.56
+        },
+        "PMax": {
+          "spend": 128875,
+          "revenue": 483690,
+          "roas": 3.75
+        },
+        "Paid Search": {
+          "spend": 65962,
+          "revenue": 627224,
+          "roas": 9.51
+        }
+      },
+      "total_spend": 315651,
+      "total_revenue": 1661312,
+      "total_roas": 5.26
+    },
+    {
+      "month": "2025-04",
+      "channels": {
+        "Paid Social": {
+          "spend": 152287,
+          "revenue": 509775,
+          "roas": 3.35
+        },
+        "PMax": {
+          "spend": 131163,
+          "revenue": 492146,
+          "roas": 3.75
+        },
+        "Paid Search": {
+          "spend": 77941,
+          "revenue": 635608,
+          "roas": 8.15
+        }
+      },
+      "total_spend": 361391,
+      "total_revenue": 1637529,
+      "total_roas": 4.53
+    },
+    {
+      "month": "2025-05",
+      "channels": {
+        "Paid Social": {
+          "spend": 53318,
+          "revenue": 180136,
+          "roas": 3.38
+        },
+        "PMax": {
+          "spend": 251777,
+          "revenue": 724959,
+          "roas": 2.88
+        },
+        "Paid Search": {
+          "spend": 81831,
+          "revenue": 1098048,
+          "roas": 13.42
+        }
+      },
+      "total_spend": 386926,
+      "total_revenue": 2003143,
+      "total_roas": 5.18
+    },
+    {
+      "month": "2025-06",
+      "channels": {
+        "Paid Social": {
+          "spend": 0,
+          "revenue": 0,
+          "roas": null
+        },
+        "PMax": {
+          "spend": 10627,
+          "revenue": 38435,
+          "roas": 3.62
+        },
+        "Paid Search": {
+          "spend": 4683,
+          "revenue": 60796,
+          "roas": 12.98
+        }
+      },
+      "total_spend": 15310,
+      "total_revenue": 99231,
+      "total_roas": 6.48
+    },
+    {
+      "month": "2025-07",
+      "channels": {
+        "Paid Social": {
+          "spend": 62218,
+          "revenue": 240784,
+          "roas": 3.87
+        },
+        "PMax": {
+          "spend": 48491,
+          "revenue": 173437,
+          "roas": 3.58
+        },
+        "Paid Search": {
+          "spend": 28775,
+          "revenue": 288194,
+          "roas": 10.02
+        }
+      },
+      "total_spend": 139484,
+      "total_revenue": 702415,
+      "total_roas": 5.04
+    },
+    {
+      "month": "2025-08",
+      "channels": {
+        "Paid Social": {
+          "spend": 289457,
+          "revenue": 992517,
+          "roas": 3.43
+        },
+        "PMax": {
+          "spend": 289687,
+          "revenue": 600691,
+          "roas": 2.07
+        },
+        "Paid Search": {
+          "spend": 74389,
+          "revenue": 588608,
+          "roas": 7.91
+        }
+      },
+      "total_spend": 653533,
+      "total_revenue": 2181816,
+      "total_roas": 3.34
+    },
+    {
+      "month": "2025-09",
+      "channels": {
+        "Paid Social": {
+          "spend": 305889,
+          "revenue": 703130,
+          "roas": 2.3
+        },
+        "PMax": {
+          "spend": 272635,
+          "revenue": 510777,
+          "roas": 1.87
+        },
+        "Paid Search": {
+          "spend": 93512,
+          "revenue": 674601,
+          "roas": 7.21
+        }
+      },
+      "total_spend": 672036,
+      "total_revenue": 1888508,
+      "total_roas": 2.81
+    },
+    {
+      "month": "2025-10",
+      "channels": {
+        "Paid Social": {
+          "spend": 242567,
+          "revenue": 487324,
+          "roas": 2.01
+        },
+        "PMax": {
+          "spend": 275195,
+          "revenue": 479679,
+          "roas": 1.74
+        },
+        "Paid Search": {
+          "spend": 48421,
+          "revenue": 382631,
+          "roas": 7.9
+        }
+      },
+      "total_spend": 566183,
+      "total_revenue": 1349634,
+      "total_roas": 2.38
+    },
+    {
+      "month": "2025-11",
+      "channels": {
+        "Paid Social": {
+          "spend": 342913,
+          "revenue": 784145,
+          "roas": 2.29
+        },
+        "PMax": {
+          "spend": 389526,
+          "revenue": 895790,
+          "roas": 2.3
+        },
+        "Paid Search": {
+          "spend": 87673,
+          "revenue": 822030,
+          "roas": 9.38
+        }
+      },
+      "total_spend": 820112,
+      "total_revenue": 2501965,
+      "total_roas": 3.05
+    },
+    {
+      "month": "2025-12",
+      "channels": {
+        "Paid Social": {
+          "spend": 190545,
+          "revenue": 475701,
+          "roas": 2.5
+        },
+        "PMax": {
+          "spend": 171763,
+          "revenue": 306372,
+          "roas": 1.78
+        },
+        "Paid Search": {
+          "spend": 62804,
+          "revenue": 460203,
+          "roas": 7.33
+        }
+      },
+      "total_spend": 425112,
+      "total_revenue": 1242276,
+      "total_roas": 2.92
+    },
+    {
+      "month": "2026-01",
+      "channels": {
+        "Paid Social": {
+          "spend": 164893,
+          "revenue": 363187,
+          "roas": 2.2
+        },
+        "PMax": {
+          "spend": 137807,
+          "revenue": 286415,
+          "roas": 2.08
+        },
+        "Paid Search": {
+          "spend": 63833,
+          "revenue": 359056,
+          "roas": 5.62
+        }
+      },
+      "total_spend": 366533,
+      "total_revenue": 1008658,
+      "total_roas": 2.75
+    },
+    {
+      "month": "2026-02",
+      "channels": {
+        "Paid Social": {
+          "spend": 101212,
+          "revenue": 363007,
+          "roas": 3.59
+        },
+        "PMax": {
+          "spend": 115065,
+          "revenue": 234441,
+          "roas": 2.04
+        },
+        "Paid Search": {
+          "spend": 37874,
+          "revenue": 251808,
+          "roas": 6.65
+        }
+      },
+      "total_spend": 254151,
+      "total_revenue": 849256,
+      "total_roas": 3.34
+    }
+  ],
+  "channel_roas_even": [
+    {
+      "month": "2025-07",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 196477,
+          "revenue": 672241,
+          "roas": 3.42
+        },
+        "PMax": {
+          "spend": 139876,
+          "revenue": 156548,
+          "roas": 1.12
+        },
+        "Paid Search": {
+          "spend": 63528,
+          "revenue": 230437,
+          "roas": 3.63
+        },
+        "Direct Mail": {
+          "spend": 34146,
+          "revenue": 96621,
+          "roas": 2.83
+        },
+        "Affiliate": {
+          "spend": 17139,
+          "revenue": 56273,
+          "roas": 3.28
+        }
+      },
+      "total_spend": 451166,
+      "total_revenue": 1212120,
+      "total_roas": 2.69
+    },
+    {
+      "month": "2025-08",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 338923,
+          "revenue": 805518,
+          "roas": 2.38
+        },
+        "PMax": {
+          "spend": 289684,
+          "revenue": 329109,
+          "roas": 1.14
+        },
+        "Paid Search": {
+          "spend": 74390,
+          "revenue": 299658,
+          "roas": 4.03
+        },
+        "Direct Mail": {
+          "spend": 42597,
+          "revenue": 158941,
+          "roas": 3.73
+        },
+        "Affiliate": {
+          "spend": 14837,
+          "revenue": 49754,
+          "roas": 3.35
+        }
+      },
+      "total_spend": 760431,
+      "total_revenue": 1642980,
+      "total_roas": 2.16
+    },
+    {
+      "month": "2025-09",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 360377,
+          "revenue": 667324,
+          "roas": 1.85
+        },
+        "PMax": {
+          "spend": 272635,
+          "revenue": 384440,
+          "roas": 1.41
+        },
+        "Paid Search": {
+          "spend": 93513,
+          "revenue": 419130,
+          "roas": 4.48
+        },
+        "Direct Mail": {
+          "spend": 48717,
+          "revenue": 140858,
+          "roas": 2.89
+        },
+        "Affiliate": {
+          "spend": 15084,
+          "revenue": 44613,
+          "roas": 2.96
+        }
+      },
+      "total_spend": 790326,
+      "total_revenue": 1656365,
+      "total_roas": 2.1
+    },
+    {
+      "month": "2025-10",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 287638,
+          "revenue": 430389,
+          "roas": 1.5
+        },
+        "PMax": {
+          "spend": 275195,
+          "revenue": 323991,
+          "roas": 1.18
+        },
+        "Paid Search": {
+          "spend": 48421,
+          "revenue": 270853,
+          "roas": 5.59
+        },
+        "Direct Mail": {
+          "spend": 61045,
+          "revenue": 150425,
+          "roas": 2.46
+        },
+        "Affiliate": {
+          "spend": 14239,
+          "revenue": 40778,
+          "roas": 2.86
+        }
+      },
+      "total_spend": 686538,
+      "total_revenue": 1216436,
+      "total_roas": 1.77
+    },
+    {
+      "month": "2025-12",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 214751,
+          "revenue": 362265,
+          "roas": 1.69
+        },
+        "PMax": {
+          "spend": 171763,
+          "revenue": 232560,
+          "roas": 1.35
+        },
+        "Paid Search": {
+          "spend": 62804,
+          "revenue": 251954,
+          "roas": 4.01
+        },
+        "Direct Mail": {
+          "spend": 34422,
+          "revenue": 349376,
+          "roas": 10.15
+        },
+        "Affiliate": {
+          "spend": 2753,
+          "revenue": 27886,
+          "roas": 10.13
+        }
+      },
+      "total_spend": 486493,
+      "total_revenue": 1224041,
+      "total_roas": 2.52
+    },
+    {
+      "month": "2026-01",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 186362,
+          "revenue": 320099,
+          "roas": 1.72
+        },
+        "PMax": {
+          "spend": 137816,
+          "revenue": 197535,
+          "roas": 1.43
+        },
+        "Paid Search": {
+          "spend": 63833,
+          "revenue": 219268,
+          "roas": 3.44
+        },
+        "Direct Mail": {
+          "spend": 48622,
+          "revenue": 277025,
+          "roas": 5.7
+        },
+        "Affiliate": {
+          "spend": 0,
+          "revenue": 15559,
+          "roas": null
+        }
+      },
+      "total_spend": 436633,
+      "total_revenue": 1029486,
+      "total_roas": 2.36
+    },
+    {
+      "month": "2026-02",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 115620,
+          "revenue": 264880,
+          "roas": 2.29
+        },
+        "PMax": {
+          "spend": 115065,
+          "revenue": 183055,
+          "roas": 1.59
+        },
+        "Paid Search": {
+          "spend": 37874,
+          "revenue": 184436,
+          "roas": 4.87
+        },
+        "Direct Mail": {
+          "spend": 6932,
+          "revenue": 192150,
+          "roas": 27.72
+        },
+        "Affiliate": {
+          "spend": 0,
+          "revenue": 8209,
+          "roas": null
+        }
+      },
+      "total_spend": 275491,
+      "total_revenue": 832730,
+      "total_roas": 3.02
+    }
+  ],
+  "channel_roas_modeled": [
+    {
+      "month": "2025-07",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 196477,
+          "revenue": 613817,
+          "roas": 3.12
+        },
+        "PMax": {
+          "spend": 139876,
+          "revenue": 160873,
+          "roas": 1.15
+        },
+        "Paid Search": {
+          "spend": 63528,
+          "revenue": 245803,
+          "roas": 3.87
+        },
+        "Direct Mail": {
+          "spend": 34146,
+          "revenue": 61542,
+          "roas": 1.8
+        },
+        "Affiliate": {
+          "spend": 17139,
+          "revenue": 44844,
+          "roas": 2.62
+        }
+      },
+      "total_spend": 451166,
+      "total_revenue": 1126879,
+      "total_roas": 2.5
+    },
+    {
+      "month": "2025-08",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 338923,
+          "revenue": 816473,
+          "roas": 2.41
+        },
+        "PMax": {
+          "spend": 289684,
+          "revenue": 334070,
+          "roas": 1.15
+        },
+        "Paid Search": {
+          "spend": 74390,
+          "revenue": 322835,
+          "roas": 4.34
+        },
+        "Direct Mail": {
+          "spend": 42597,
+          "revenue": 112528,
+          "roas": 2.64
+        },
+        "Affiliate": {
+          "spend": 14837,
+          "revenue": 45525,
+          "roas": 3.07
+        }
+      },
+      "total_spend": 760431,
+      "total_revenue": 1631431,
+      "total_roas": 2.15
+    },
+    {
+      "month": "2025-09",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 360377,
+          "revenue": 673732,
+          "roas": 1.87
+        },
+        "PMax": {
+          "spend": 272635,
+          "revenue": 388519,
+          "roas": 1.43
+        },
+        "Paid Search": {
+          "spend": 93513,
+          "revenue": 451283,
+          "roas": 4.83
+        },
+        "Direct Mail": {
+          "spend": 48717,
+          "revenue": 93729,
+          "roas": 1.92
+        },
+        "Affiliate": {
+          "spend": 15084,
+          "revenue": 39700,
+          "roas": 2.63
+        }
+      },
+      "total_spend": 790326,
+      "total_revenue": 1646963,
+      "total_roas": 2.08
+    },
+    {
+      "month": "2025-10",
+      "source": "bucket_breakdown",
+      "channels": {
+        "Paid Social": {
+          "spend": 287638,
+          "revenue": 444817,
+          "roas": 1.55
+        },
+        "PMax": {
+          "spend": 275195,
+          "revenue": 325789,
+          "roas": 1.18
+        },
+        "Paid Search": {
+          "spend": 48421,
+          "revenue": 294449,
+          "roas": 6.08
+        },
+        "Direct Mail": {
+          "spend": 61045,
+          "revenue": 98489,
+          "roas": 1.61
+        },
+        "Affiliate": {
+          "spend": 14239,
+          "revenue": 37706,
+          "roas": 2.65
+        }
+      },
+      "total_spend": 686538,
+      "total_revenue": 1201250,
+      "total_roas": 1.75
+    },
+    {
+      "month": "2025-12",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 214751,
+          "revenue": 391298,
+          "roas": 1.82
+        },
+        "PMax": {
+          "spend": 171763,
+          "revenue": 245034,
+          "roas": 1.43
+        },
+        "Paid Search": {
+          "spend": 62804,
+          "revenue": 294393,
+          "roas": 4.69
+        },
+        "Direct Mail": {
+          "spend": 34422,
+          "revenue": 223399,
+          "roas": 6.49
+        },
+        "Affiliate": {
+          "spend": 2753,
+          "revenue": 26195,
+          "roas": 9.52
+        }
+      },
+      "total_spend": 486493,
+      "total_revenue": 1180319,
+      "total_roas": 2.43
+    },
+    {
+      "month": "2026-01",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 186362,
+          "revenue": 335873,
+          "roas": 1.8
+        },
+        "PMax": {
+          "spend": 137816,
+          "revenue": 205841,
+          "roas": 1.49
+        },
+        "Paid Search": {
+          "spend": 63833,
+          "revenue": 252602,
+          "roas": 3.96
+        },
+        "Direct Mail": {
+          "spend": 48622,
+          "revenue": 189286,
+          "roas": 3.89
+        },
+        "Affiliate": {
+          "spend": 0,
+          "revenue": 14770,
+          "roas": null
+        }
+      },
+      "total_spend": 436633,
+      "total_revenue": 998372,
+      "total_roas": 2.29
+    },
+    {
+      "month": "2026-02",
+      "source": "log_level_mta",
+      "channels": {
+        "Paid Social": {
+          "spend": 115620,
+          "revenue": 283289,
+          "roas": 2.45
+        },
+        "PMax": {
+          "spend": 115065,
+          "revenue": 190284,
+          "roas": 1.65
+        },
+        "Paid Search": {
+          "spend": 37874,
+          "revenue": 206125,
+          "roas": 5.44
+        },
+        "Direct Mail": {
+          "spend": 6932,
+          "revenue": 117606,
+          "roas": 16.97
+        },
+        "Affiliate": {
+          "spend": 0,
+          "revenue": 7444,
+          "roas": null
+        }
+      },
+      "total_spend": 275491,
+      "total_revenue": 804748,
+      "total_roas": 2.92
+    }
+  ]
+}
